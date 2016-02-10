@@ -5,7 +5,6 @@
   "main": "none",
   "repository": "https://github.com/TeselaGen/ve-range-utils",
   "scripts": {
-    "patchAndPublish": "npm version patch && npm publish",
     "test": "mocha *.test.js --harmony"
   },
   "author": "",
@@ -16,6 +15,7 @@
     "ve-api-check": "^1.0.0"
   },
   "devDependencies": {
-    "chai": "^3.2.0"
+    "chai": "^3.2.0",
+    "mocha": "^2.4.5"
   }
 }

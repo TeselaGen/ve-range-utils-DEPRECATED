@@ -7,7 +7,7 @@ module.exports = function getYOffsetsForPotentiallyCircularRanges(ranges, assign
     var maxYOffset = 0;
     var yOffsetLevels = [] //yOffsetLevels is an array of arrays (array of yOffset levels holding arrays of ranges)
     ranges.forEach(function(range){
-        //loop through y offset levels starting with the 0 level until an empty one is found and push the range into it. If none are found, add another level. 
+        //loop through y offset levels starting with the 0 level until an empty one is found and push the range into it. If none are found, add another level.
         var yOffset = getYOffsetForPotentiallyCircularRange(range, yOffsetLevels, assignYOffsetToRange)
         yOffsets.push(yOffset)
         if (yOffset>maxYOffset) {
@@ -17,5 +17,5 @@ module.exports = function getYOffsetsForPotentiallyCircularRanges(ranges, assign
         if (!yOffsetLevels[yOffset]) yOffsetLevels[yOffset] = [];
         yOffsetLevels[yOffset].push(range);
     });
-    return {yOffsets, maxYOffset};
+    return {yOffsets:yOffsets, maxYOffset: maxYOffset};
 }
