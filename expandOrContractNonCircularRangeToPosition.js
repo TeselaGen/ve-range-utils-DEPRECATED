@@ -17,5 +17,8 @@ module.exports = function expandOrContractNonCircularRangeToPosition (range, pos
             }
         }
     }
-    return ({newRange, endMoved})
+    return ({
+        newRange: newRange,
+        endMoved: endMoved
+    })
 }

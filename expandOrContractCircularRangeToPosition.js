@@ -34,6 +34,7 @@ module.exports = function expandOrContractCircularRangeToPosition(range, positio
         }
     }
     return ({
-        newRange, endMoved
+        newRange: newRange, 
+        endMoved: endMoved
     })
 }
