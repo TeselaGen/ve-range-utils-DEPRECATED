@@ -1,7 +1,7 @@
-var ac = require('ve-api-check');
+// var ac = require('ve-api-check');
 var getYOffsetForPotentiallyCircularRange = require('./getYOffsetForPotentiallyCircularRange');
 module.exports = function getYOffsetsForPotentiallyCircularRanges(ranges, assignYOffsetToRange) {
-    ac.throw([ac.array, ac.bool.optional],arguments);
+    // ac.throw([ac.array, ac.bool.optional],arguments);
     //adjust the yOffset of the range being pushed in by checking its range against other ranges already in the row
     var yOffsets = [];
     var maxYOffset = 0;
