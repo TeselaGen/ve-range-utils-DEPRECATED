@@ -4,7 +4,7 @@ module.exports = function getRangeAngles(range, rangeMax) {
     return {
                 startAngle: 2 * Math.PI * (range.start / rangeMax),
                 endAngle: 2 * Math.PI * (range.end + 1) / rangeMax, //use a +1 here because the angle must encompass the end of the annotation
-                totalAngle: rangeLength / rangeMax * Math.PI * 2 //subtract a tiny amount from the angle so that 0-2PI angles will draw correctly..
+                totalAngle: rangeLength / rangeMax * Math.PI * 2
             }
 };
 
