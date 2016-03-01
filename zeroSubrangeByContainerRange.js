@@ -1,4 +1,4 @@
-var ac = require('ve-api-check');
+// var ac = require('ve-api-check');
 // ac.throw([ac.posInt, ac.posInt, ac.bool], arguments);
 var trimRangeByAnotherRange = require('./trimRangeByAnotherRange');
 /**
@@ -16,7 +16,7 @@ var trimRangeByAnotherRange = require('./trimRangeByAnotherRange');
  *                                     }
  */
 module.exports = function zeroSubrangeByContainerRange(subRange, containerRange, sequenceLength) {
-    ac.throw([ac.range, ac.range, ac.posInt], arguments);
+    // ac.throw([ac.range, ac.range, ac.posInt], arguments);
     //first check to make sure the container range fully contains the subRange
     var trimmedSubRange = trimRangeByAnotherRange(subRange, containerRange, sequenceLength);
     if (trimmedSubRange) {
