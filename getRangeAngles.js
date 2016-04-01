@@ -1,5 +1,8 @@
 var getRangeLength = require('./getRangeLength');
 module.exports = function getRangeAngles(range, rangeMax) {
+	if (rangeMax <= 0) {
+		console.error('Range max should never be less than or equal to 0')
+	}
     var rangeLength = getRangeLength(range, rangeMax);
     var startAngle = 2 * Math.PI * (range.start / rangeMax)
     var totalAngle = rangeLength / rangeMax * Math.PI * 2
