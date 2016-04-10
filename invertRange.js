@@ -1,4 +1,3 @@
-require('chai').should()
 var normalizePositionByRangeLength = require('./normalizePositionByRangeLength');
 module.exports = function invertRange(range, rangeMax) {
     var start = range.end + 1;
