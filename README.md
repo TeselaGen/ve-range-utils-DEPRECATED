@@ -18,14 +18,9 @@ var myRange2 = {
 }
 ```
 
-All ranges are assumed to have 0-based indices:
+All ranges are assumed to have 0-based inclusive indices:
 
 rrrr
 0123
 start = 0,
 end = 3
-
-
-By default, errors are thrown if the inputs to a function don't comply with what the function expects. This functionality can be turned off by setting the environment variable NODE_ENV=production.
-
-
