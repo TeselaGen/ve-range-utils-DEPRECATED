@@ -1,6 +1,7 @@
 // var ac = require('ve-api-check');
 // ac.throw([ac.posInt, ac.posInt, ac.bool], arguments);
 module.exports = function normalizePositionByRangeLength(pPosition, sequenceLength, isInBetweenPositions) {
+    console.log('arguments:',arguments)
     //isInBetweenPositions refers to:
     // A T G C
     // 0 1 2 3    <--  isInBetweenPositions = false is counting the positions themselves

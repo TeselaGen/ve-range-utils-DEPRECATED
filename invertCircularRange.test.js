@@ -1,4 +1,6 @@
 var invertRange = require('./invertRange');
+var chai = require('chai')
+var should = chai.should();
 describe('invertRange', function () {
 	it('should invert a non-circular range', function () {
 		var invertedRange = invertRange({start: 2, end:2}, 10);
