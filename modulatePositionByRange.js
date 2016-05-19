@@ -1,5 +1,4 @@
-// var ac = require('ve-api-check');
-// ac.throw([ac.posInt, ac.posInt, ac.bool], arguments);
+
 module.exports = function modulatePositionByRange(position, range) {
     var returnVal = position
     if (position < range.start) {
