@@ -3,6 +3,9 @@
 //takes a potentially circular range and returns an array containing the range split on the origin
 module.exports = function splitRangeIntoTwoPartsIfItIsCircular(range, sequenceLength) {
     // ac.throw([ac.range, ac.number], arguments);
+    if (sequenceLength !== 0) {
+      sequenceLength = sequenceLength || Infinity
+    }
     var ranges = [];
     if (range.start > range.end) {
         //the range is cicular, so we return an array of two ranges
