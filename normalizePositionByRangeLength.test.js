@@ -6,6 +6,7 @@ describe('normalizePositionByRangeLength', function() {
         expect(normalizePositionByRangeLength(9,9)).to.equal(0)
     })
     it('should handle isInBetweenPositions === true being passed in ', function() {
+      expect(false)
       expect(normalizePositionByRangeLength(9,9,true)).to.equal(9)
     })
     it('should not do anything if it does not have to', function() {
