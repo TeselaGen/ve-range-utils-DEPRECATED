@@ -1,3 +1,4 @@
+
 var invertRange = require('./invertRange');
 var chai = require('chai')
 chai.should();
@@ -62,22 +63,22 @@ describe('invertRange should handle options inclusive1BasedEnd or inclusive1Base
 		invertedRange.start.should.equal(2)
 		invertedRange.end.should.equal(10)
 	});
-	it('should invert a non-circular range', function () {
+	it('should invert non-circular range 1', function () {
 		var invertedRange = invertRange({start: 0, end:9}, 10,{inclusive1BasedEnd: true});
 		invertedRange.start.should.equal(9)
 		invertedRange.end.should.equal(10)
 	});
-	it('should invert a non-circular range', function () {
+	it('should invert a non-circular range 2', function () {
 		var invertedRange = invertRange({start: 1, end:9}, 10,{inclusive1BasedEnd: true,inclusive1BasedStart: true});
 		invertedRange.start.should.equal(10)
 		invertedRange.end.should.equal(10)
 	});
-	it('should invert a non-circular range', function () {
+	it('should invert a non-circular range 3', function () {
 		var invertedRange = invertRange({start: 3, end:6}, 10,{inclusive1BasedEnd: true,inclusive1BasedStart: true});
 		invertedRange.start.should.equal(7)
 		invertedRange.end.should.equal(2)
 	});
-	it('should invert a circular range', function () {
+	it('should invert a circular range 4', function () {
 		var invertedRange = invertRange({start: 6, end:3}, 10,{inclusive1BasedEnd: true,inclusive1BasedStart: true});
 		invertedRange.start.should.equal(4)
 		invertedRange.end.should.equal(5)
