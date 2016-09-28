@@ -2,7 +2,7 @@ var assign = require('lodash/object/assign')
 module.exports = function convertRangeIndices(range, inputType, outputType) {
     inputType = inputType || {}
     outputType = outputType || {}
-    return assign(range,{
+    return assign({},range,{
         start: Number(range.start) + (inputType.inclusive1BasedStart 
             ? outputType.inclusive1BasedStart
                 ? 0
