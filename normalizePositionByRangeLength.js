@@ -12,5 +12,9 @@ module.exports = function normalizePositionByRangeLength(pPosition, sequenceLeng
     } else if (position + (isInBetweenPositions ? 0 : 1) > sequenceLength) {
         position -= sequenceLength;
     }
-    return position < 0 ? 0 : position;
+    return position < 0 
+        ? 0 
+        : position > (sequenceLength - (isInBetweenPositions ? 0 : 1)) 
+            ? sequenceLength - (isInBetweenPositions ? 0 : 1)
+            : position
 };
