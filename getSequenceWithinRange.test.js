@@ -38,4 +38,12 @@ describe('getSequenceWithinRange', function() {
         subseq = getSequenceWithinRange({start: 3,end:0},'atgc');
         assert.deepEqual(subseq, 'ca');
     });
+    it('returns an empty string if the range is invalid', function() {
+        subseq = getSequenceWithinRange({start: -1,end:0},'atgc');
+        assert.deepEqual(subseq, '');
+        subseq = getSequenceWithinRange({start: -1,end:-1},'atgc');
+        assert.deepEqual(subseq, '');
+        subseq = getSequenceWithinRange({start: 3,end:-1},'atgc');
+        assert.deepEqual(subseq, '');
+    });
 });

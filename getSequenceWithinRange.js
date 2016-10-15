@@ -1,6 +1,7 @@
 // var ac = require('ve-api-check');    
 module.exports = function getSequenceWithinRange(range, sequence) {
     // ac.throw([ac.range, ac.oneOfType([ac.array, ac.string])], arguments);
+    if (range.start < 0 || range.end < 0) return ''
     if (range.start > range.end) {
         //circular range 
         var subSequence = sequence.slice(range.start, sequence.length);
