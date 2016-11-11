@@ -1,4 +1,3 @@
-// var ac = require('ve-api-check'); 
 var assign = require('lodash/object/assign');
 var normalizePositionByRangeLength = require('./normalizePositionByRangeLength');
 module.exports = function translateRange(rangeToBeAdjusted, translateBy, rangeLength) {
