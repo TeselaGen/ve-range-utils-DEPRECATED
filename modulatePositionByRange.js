@@ -1,4 +1,4 @@
-
+//this function takes a position that might not fit in a given range and puts it into that range
 module.exports = function modulatePositionByRange(position, range) {
     var returnVal = position
     if (position < range.start) {
