@@ -2,7 +2,6 @@ var normalizePositionByRangeLength = require('./normalizePositionByRangeLength')
 var provideInclusiveOptions = require('./provideInclusiveOptions')
 module.exports = provideInclusiveOptions(invertRange)
 function invertRange(range, rangeMax) {
-    console.log('arguments:',arguments)
     var start = range.end + 1;
     var end = range.start - 1;
     return {
