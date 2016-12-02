@@ -43,6 +43,16 @@ describe('invertRange', function () {
 		invertedRange.start.should.equal(4)
 		invertedRange.end.should.equal(3)
 	});
+	it('should handle inverting a caret position', function () {
+		var invertedRange = invertRange(1, 10);
+		invertedRange.start.should.equal(1)
+		invertedRange.end.should.equal(0)
+	});
+	it('should handle inverting a caret position', function () {
+		var invertedRange = invertRange(0, 10);
+		invertedRange.start.should.equal(0)
+		invertedRange.end.should.equal(9)
+	});
 	//tnrtodo: maybe one day we'll want to handle the "entire range" case in a special way, but for now we'll just return the original range
 	// it('should handle inverting a whole range by setting the start and end to -1', function () {
 	// 	var invertedRange = invertRange({start: 4, end:3}, 10);
