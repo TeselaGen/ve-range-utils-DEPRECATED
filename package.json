@@ -16,7 +16,7 @@
     "biojs"
   ],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "lodash": "^3.10.1",
     "validate.io-nonnegative-integer-array": "^1.0.1"
