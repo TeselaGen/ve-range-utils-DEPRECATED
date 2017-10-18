@@ -1,17 +1,31 @@
-var splitRangeIntoTwoPartsIfItIsCircular = require('./splitRangeIntoTwoPartsIfItIsCircular')
-module.exports = function isPositionWithinRange(position, range, sequenceLength) {
-    var ranges = splitRangeIntoTwoPartsIfItIsCircular(range, sequenceLength) 
-    var positionFits = ranges.some(function (range) {
-      if (position <= range.start) {
-        return false
+var splitRangeIntoTwoPartsIfItIsCircular = require("./splitRangeIntoTwoPartsIfItIsCircular");
+/**
+ * 
+ * @param {*} position //assumed to be a 0 based "caretPosition"
+ * @param {*} range //0 based inclusive range
+ * @param {*} sequenceLength 
+ * @param {*} includeEdges - (default false) whether or not to say 
+ */
+function isPositionWithinRange(
+  position,
+  range,
+  sequenceLength,
+  includeStartEdge,
+  includeEndEdge
+) {
+  var ranges = splitRangeIntoTwoPartsIfItIsCircular(range, sequenceLength);
+  var positionFits = ranges.some(function(range) {
+    if (includeStartEdge ? position < range.start : position <= range.start) {
+      return false;
+    } else {
+      if (includeEndEdge ? position <= range.end + 1 : position <= range.end) {
+        return true;
       } else {
-        if (position <= range.end) {
-          return true
-        } else {
-          return false
-        }
+        return false;
       }
-    })
-    return positionFits
-    
+    }
+  });
+  return positionFits;
 }
+
+module.exports = isPositionWithinRange;
