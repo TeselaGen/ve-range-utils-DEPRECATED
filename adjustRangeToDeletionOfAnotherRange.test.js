@@ -24,24 +24,28 @@ describe('adjustRangeToDeletionOfAnotherRange', function() {
     });
     it('shifts start and end if deleting before non circular range', function() {
         assert.deepEqual(adjustRangeToDeletionOfAnotherRange({
+            name: 'happy',
             start: 10,
             end: 20
         }, {
             start: 5,
             end: 8
         }, 30), {
+            name: 'happy',
             start: 6,
             end: 16
         });
     });
     it('shifts start if deleting in middle of non circular range', function() {
         assert.deepEqual(adjustRangeToDeletionOfAnotherRange({
+            name: 'happy',
             start: 20,
             end: 10
         }, {
             start: 15,
             end: 20
         }, 30), {
+            name: 'happy',
             start: 15,
             end: 10
         });

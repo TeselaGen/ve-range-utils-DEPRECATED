@@ -8,25 +8,29 @@ describe('trimRangeByAnotherRange', function() {
     it('trims non circular ranges that dont fully overlap', function() {
         assert.deepEqual(trimRangeByAnotherRange({
             start: 0,
-            end: 2
+            end: 2,
+            name: 'happy'
         }, {
             start: 2,
             end: 2
         }, 10), {
             start: 0,
-            end: 1
+            end: 1,
+            name: 'happy'
         });
     });
     it('it does not trim non circular ranges with overlap contained within it', function() {
         assert.deepEqual(trimRangeByAnotherRange({
             start: 0,
-            end: 10
+            end: 10,
+            name: 'happy',
         }, {
             start: 2,
             end: 2
         }, 10), {
             start: 0,
-            end: 10
+            end: 10,
+            name: 'happy',
         });
     });
     it('trims non circular ranges that fully overlap', function() {
@@ -72,24 +76,28 @@ describe('trimRangeByAnotherRange', function() {
         });
         assert.deepEqual(trimRangeByAnotherRange({
             start: 3,
-            end: 5
+            end: 5,
+            name: 'happy',
         }, {
             start: 0,
             end: 0
         }, 10), {
             start: 3,
+            name: 'happy',
             end: 5
         });
     });
     it('does trim circular ranges that overlap', function() {
         assert.deepEqual(trimRangeByAnotherRange({
             start: 3,
+            name: 'happy',
             end: 2
         }, {
             start: 5,
             end: 6
         }, 10), {
             start: 3,
+            name: 'happy',
             end: 2
         });
         assert.deepEqual(trimRangeByAnotherRange({
