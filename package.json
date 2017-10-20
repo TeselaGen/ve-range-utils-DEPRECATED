@@ -22,9 +22,19 @@
     "validate.io-nonnegative-integer-array": "^1.0.1"
   },
   "devDependencies": {
+    "babel-eslint": "7.2.3",
     "chai": "^3.2.0",
-    "eslint": "^1.10.3",
+    "eslint": "^4.8.0",
+    "eslint-config-react-app": "^2.0.1",
+    "eslint-config-teselagen": "^4.0.8",
+    "eslint-plugin-flowtype": "2.33.0",
+    "eslint-plugin-import": "2.2.0",
+    "eslint-plugin-jsx-a11y": "5.0.1",
+    "eslint-plugin-react": "7.0.1",
     "husky": "^0.11.6",
-    "mocha": "^2.4.5"
+    "install-peerdeps": "^1.2.0",
+    "lint-staged": "^4.0.4",
+    "mocha": "^2.4.5",
+    "prettier": "^1.6.1"
   }
 }
