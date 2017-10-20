@@ -1,7 +1,6 @@
 //var tap = require('tap');
 //tap.mochaGlobals();
 var adjustRangeToDeletionOfAnotherRange = require('./adjustRangeToDeletionOfAnotherRange.js');
-// var collapseOverlapsGeneratedFromRangeComparisonIfPossible = require('./collapseOverlapsGeneratedFromRangeComparisonIfPossible.js');
 var assert = require('assert');
 describe('adjustRangeToDeletionOfAnotherRange', function() {
     it('deletes non circular range if fully overlapped', function() {

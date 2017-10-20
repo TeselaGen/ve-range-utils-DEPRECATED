@@ -40,6 +40,34 @@ describe('collapseOverlapsGeneratedFromRangeComparisonIfPossible', function() {
             end: 100
         }]);
     });
+    it('doesnt collapses a split range that could be circular if the originalRangeIsNotCircular', function() {
+        assert.deepEqual(collapseOverlapsGeneratedFromRangeComparisonIfPossible([{
+            start: 0,
+            end: 100
+        }, {
+            start: 105,
+            end: 999
+        }], 1000, {
+            start: 0,
+            end: 999
+        }), [{
+            start: 0,
+            end: 100
+        }, {
+            start: 105,
+            end: 999
+        }]);
+        assert.deepEqual(collapseOverlapsGeneratedFromRangeComparisonIfPossible(getOverlapsOfPotentiallyCircularRanges({
+            start: 900,
+            end: 100
+        }, {
+            start: 900,
+            end: 100
+        }, 1000), 1000), [{
+            start: 900,
+            end: 100
+        }]);
+    });
     it('doesnt collapses a split range that doesnt line up correctly', function() {
         assert.deepEqual(collapseOverlapsGeneratedFromRangeComparisonIfPossible([{
             start: 0,
