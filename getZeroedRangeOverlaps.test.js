@@ -17,7 +17,6 @@ describe.only('getZeroedRangeOverlaps', function() {
       //aaaa
       //ssss 
         const res = getZeroedRangeOverlaps({start: 0, end: 3}, {start: 2, end: 1}, 4, true, true) 
-        console.log('res:',res)
         assert.deepEqual(res, [ {start: 2,end: 3}, {start: 0, end:1},])
     })
     it('annotation circular, selection fully containing', function() {
@@ -25,7 +24,6 @@ describe.only('getZeroedRangeOverlaps', function() {
       //aa aa
       //sssss 
         const res = getZeroedRangeOverlaps({start: 3, end: 1}, {start: 0, end: 4}, 5, true, true) 
-        console.log('res:',res)
         assert.deepEqual(res, [{start: 3, end: 1}])
     })
     it('annotation circular, selection fully containing 2', function() {
@@ -33,7 +31,6 @@ describe.only('getZeroedRangeOverlaps', function() {
       //aa aa
       //sssss 
         const res = getZeroedRangeOverlaps({start: 3, end: 1}, {start: 1, end: 0}, 5, true, true) 
-        console.log('res:',res)
         assert.deepEqual(res, [{start: 2, end: 4}, {start: 0, end: 0}])
     })
 })
