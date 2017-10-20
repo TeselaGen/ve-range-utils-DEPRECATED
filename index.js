@@ -45,3 +45,4 @@ module.exports.trimNonCicularRangeByAnotherNonCircularRange = require("./trimNon
 module.exports.trimNumberToFitWithin0ToAnotherNumber = require("./trimNumberToFitWithin0ToAnotherNumber")
 module.exports.trimRangeByAnotherRange = require("./trimRangeByAnotherRange")
 module.exports.zeroSubrangeByContainerRange = require("./zeroSubrangeByContainerRange")
+module.exports.getZeroedRangeOverlaps = require("./getZeroedRangeOverlaps")
