@@ -2,7 +2,7 @@ var areNonNegativeIntegers = require('validate.io-nonnegative-integer-array');
 var getOverlapsOfPotentiallyCircularRanges = require('./getOverlapsOfPotentiallyCircularRanges');
 var splitRangeIntoTwoPartsIfItIsCircular = require('./splitRangeIntoTwoPartsIfItIsCircular');
 var trimNonCicularRangeByAnotherNonCircularRange = require('./trimNonCicularRangeByAnotherNonCircularRange');
-var extend = require('lodash/extend');
+var _ = require('lodash');
 
 /**
  * trims range, but does *not* adjust it
@@ -66,7 +66,7 @@ module.exports = function trimRangeByAnotherRange(rangeToBeTrimmed, trimmingRang
         }
     }
     if (outputTrimmedRange) {
-        return extend({},rangeToBeTrimmed,{
+        return _.extend({},rangeToBeTrimmed,{
             start: outputTrimmedRange.start,
             end: outputTrimmedRange.end
         });
