@@ -1,4 +1,4 @@
-var assign = require('lodash/object/assign')
+const { assign } = require("lodash")
 module.exports = function convertRangeIndices(range, inputType, outputType) {
     inputType = inputType || {}
     outputType = outputType || {}

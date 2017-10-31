@@ -1,4 +1,4 @@
-var clone = require('lodash/lang/clone');
+var {clone} = require('lodash');
 var normalizeRange = require('./normalizeRange');
 module.exports = function expandOrContractRangeByLength(range, shiftBy, shiftStart, sequenceLength) {
     var rangeToReturn = clone(range)
