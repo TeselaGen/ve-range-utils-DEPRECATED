@@ -1,6 +1,6 @@
 const assert = require('assert');
 const getZeroedRangeOverlaps = require('./getZeroedRangeOverlaps')
-describe.only('getZeroedRangeOverlaps', function() {
+describe('getZeroedRangeOverlaps', function() {
     it('annotation non-circular, selection non circular ', function() {
         const res = getZeroedRangeOverlaps({start: 0, end: 3}, {start: 2, end: 3}, 4, true, true) 
         assert.deepEqual(res, [{start: 0, end:1}])
