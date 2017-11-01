@@ -6,3 +6,5 @@ bundle.js
 npm-debug.log
 /lib
 /es
+lib/
+es/

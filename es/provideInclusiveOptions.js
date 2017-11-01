@@ -1,4 +1,6 @@
-var assign = require('lodash/object/assign');
+var _require = require("lodash"),
+    assign = _require.assign;
+
 module.exports = function provideInclusiveOptions(funToWrap) {
     return function () {
         var args = Array.prototype.slice.call(arguments);
