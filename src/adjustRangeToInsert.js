@@ -1,9 +1,9 @@
-// var ac = require('ve-api-check'); 
+// const ac = require('ve-api-check'); 
 const { assign } = require("lodash");
 
 module.exports = function adjustRangeToInsert(rangeToBeAdjusted, insertStart, insertLength) {
     // ac.throw([ac.range, ac.posInt, ac.posInt], arguments);
-    var newRange = assign({}, rangeToBeAdjusted);
+    const newRange = assign({}, rangeToBeAdjusted);
     if (rangeToBeAdjusted.start > rangeToBeAdjusted.end) {
         //circular range
         if (rangeToBeAdjusted.end >= insertStart) {
