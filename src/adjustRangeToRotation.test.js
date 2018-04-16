@@ -7,7 +7,7 @@ describe('adjustRangeToRotation', function() {
     it('shifts start and end if rotating before non circular range', function() {
         //0123456789
         //atgcatgccc
-        // ff
+        // rr
         // 
         assert.deepEqual(adjustRangeToRotation({
             start: 1,
@@ -29,6 +29,42 @@ describe('adjustRangeToRotation', function() {
         }, 3, 10), {
             start: 8,
             end: 9
+        });
+        //0123456789
+        //atgcatgccc
+        //rrrrr  rrr
+        // 
+        assert.deepEqual(adjustRangeToRotation({
+            start: 7,
+            end: 4
+        }, 3, 10), {
+            start: 4,
+            end: 1
+        });
+        assert.deepEqual(adjustRangeToRotation({
+            start: 7,
+            end: 4
+        }, 5, 10), {
+            start: 2,
+            end: 9
+        });
+        assert.deepEqual(adjustRangeToRotation({
+            start: 7,
+            end: 4
+        }, 6, 10), {
+            start: 1,
+            end: 8
+        });
+        //0123456 789
+        //atgcatg ccc
+        //rrrrrrr rrr
+        // 
+        assert.deepEqual(adjustRangeToRotation({
+            start: 7,
+            end: 6
+        }, 3, 10), {
+            start: 4,
+            end: 3
         });
     });
     
