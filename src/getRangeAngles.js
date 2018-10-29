@@ -1,24 +1,27 @@
-var getRangeLength = require('./getRangeLength');
+const getRangeLength = require("./getRangeLength");
+
 module.exports = function getRangeAngles(range, rangeMax) {
-	if (process.env.NODE_ENV !== "production") {
-        if (rangeMax <= 0) {
-    		console.error('Range max should never be less than or equal to 0')
-    	}
-        if (!isNumeric(rangeMax)) {
-            debugger
-        }
-    }
-    var rangeLength = getRangeLength(range, rangeMax);
-    var startAngle = 2 * Math.PI * (range.start / rangeMax)
-    var totalAngle = rangeLength / rangeMax * Math.PI * 2
-    return {
-                startAngle: startAngle,
-                endAngle: 2 * Math.PI * (range.end + 1) / rangeMax, //use a +1 here because the angle must encompass the end of the annotation
-                totalAngle: totalAngle,
-                centerAngle: startAngle + totalAngle/2 
-            }
+  const { startAngle, totalAngle, endAngle } = getStartEndAndTotalAngle(
+    range,
+    rangeMax
+  );
+  return {
+    startAngle,
+    totalAngle,
+    endAngle,
+    centerAngle: startAngle + totalAngle / 2,
+    locationAngles: range.locations && range.locations.map((location) => {
+        return getRangeAngles(location, rangeMax)
+    })
+  };
 };
 
-function isNumeric(n) {
-  return !isNaN(parseFloat(n)) && isFinite(n);
+function getStartEndAndTotalAngle(range, rangeMax) {
+  const rangeLength = getRangeLength(range, rangeMax);
+
+  return {
+    startAngle: 2 * Math.PI * (range.start / rangeMax),
+    totalAngle: rangeLength / rangeMax * Math.PI * 2,
+    endAngle: 2 * Math.PI * (range.end + 1) / rangeMax //use a +1 here because the angle must encompass the end of the annotation
+  };
 }

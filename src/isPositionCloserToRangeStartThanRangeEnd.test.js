@@ -1,7 +1,7 @@
-var isPositionCloserToRangeStartThanRangeEnd = require('./isPositionCloserToRangeStartThanRangeEnd');
-var expect = require('chai').expect
+const isPositionCloserToRangeStartThanRangeEnd = require('./isPositionCloserToRangeStartThanRangeEnd');
+const expect = require('chai').expect
 
-describe('isPositionCloserToRangeStartThanRangeEnd', function(done) {
+describe('isPositionCloserToRangeStartThanRangeEnd', function() {
     it('should correctly determine whether a position is closer to the start of a range than the end', function() {
         expect(isPositionCloserToRangeStartThanRangeEnd(0,{start: 1, end: 10}, 100)).to.equal(true)
         expect(isPositionCloserToRangeStartThanRangeEnd(1,{start: 0, end: 10}, 100)).to.equal(true)
