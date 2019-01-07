@@ -1,8 +1,8 @@
-var areNonNegativeIntegers = require('validate.io-nonnegative-integer-array');
-var getOverlapsOfPotentiallyCircularRanges = require('./getOverlapsOfPotentiallyCircularRanges');
-var splitRangeIntoTwoPartsIfItIsCircular = require('./splitRangeIntoTwoPartsIfItIsCircular');
-var trimNonCicularRangeByAnotherNonCircularRange = require('./trimNonCicularRangeByAnotherNonCircularRange');
-var _ = require('lodash');
+let areNonNegativeIntegers = require("validate.io-nonnegative-integer-array");
+let getOverlapsOfPotentiallyCircularRanges = require("./getOverlapsOfPotentiallyCircularRanges");
+let splitRangeIntoTwoPartsIfItIsCircular = require("./splitRangeIntoTwoPartsIfItIsCircular");
+let trimNonCicularRangeByAnotherNonCircularRange = require("./trimNonCicularRangeByAnotherNonCircularRange");
+let _ = require("lodash");
 
 /**
  * trims range, but does *not* adjust it
@@ -18,58 +18,78 @@ var _ = require('lodash');
  *                                  end:
  *                                  }
  */
-module.exports = function trimRangeByAnotherRange(rangeToBeTrimmed, trimmingRange, sequenceLength) {
-    if (!areNonNegativeIntegers([rangeToBeTrimmed.start, rangeToBeTrimmed.end])) {
-        console.warn('invalid range input');
-        return;
-    }
+module.exports = function trimRangeByAnotherRange(
+  rangeToBeTrimmed,
+  trimmingRange,
+  sequenceLength
+) {
+  if (!rangeToBeTrimmed || !trimmingRange) {
+    console.warn("invalid range input");
+    return null; //a null return val means something went wrong with this function
+  }
+  if (
+    !areNonNegativeIntegers([rangeToBeTrimmed.start, rangeToBeTrimmed.end]) ||
+    !areNonNegativeIntegers([trimmingRange.start, trimmingRange.end])
+  ) {
+    console.warn("invalid range input");
+    return null; //a null return val means something went wrong with this function
+  }
   //get the overlaps of the ranges
-    var overlaps = getOverlapsOfPotentiallyCircularRanges(rangeToBeTrimmed, trimmingRange, sequenceLength);
+  let overlaps = getOverlapsOfPotentiallyCircularRanges(
+    rangeToBeTrimmed,
+    trimmingRange,
+    sequenceLength
+  );
   //split the range to be trimmed into pieces if necessary
-    if (!overlaps.length) { 
-        //just return the range to be trimmed
-        return rangeToBeTrimmed
-    }
+  if (!overlaps.length) {
+    //just return the range to be trimmed
+    return rangeToBeTrimmed;
+  }
   //and trim both pieces by the already calculated overlaps
-    var splitRangesToBeTrimmed = splitRangeIntoTwoPartsIfItIsCircular(rangeToBeTrimmed, sequenceLength);
-    splitRangesToBeTrimmed.forEach(function(nonCircularRangeToBeTrimmed, index) {
-        overlaps.forEach(function(overlap) {
-            if (nonCircularRangeToBeTrimmed) {
-                nonCircularRangeToBeTrimmed = trimNonCicularRangeByAnotherNonCircularRange(nonCircularRangeToBeTrimmed, overlap);
-            }
-        });
-        splitRangesToBeTrimmed[index] = nonCircularRangeToBeTrimmed;
+  let splitRangesToBeTrimmed = splitRangeIntoTwoPartsIfItIsCircular(
+    rangeToBeTrimmed,
+    sequenceLength
+  );
+  splitRangesToBeTrimmed.forEach(function(nonCircularRangeToBeTrimmed, index) {
+    overlaps.forEach(function(overlap) {
+      if (nonCircularRangeToBeTrimmed) {
+        nonCircularRangeToBeTrimmed = trimNonCicularRangeByAnotherNonCircularRange(
+          nonCircularRangeToBeTrimmed,
+          overlap
+        );
+      }
     });
+    splitRangesToBeTrimmed[index] = nonCircularRangeToBeTrimmed;
+  });
   //filter out any of the split ranges that have been fully deleted!
-    var outputSplitRanges = splitRangesToBeTrimmed.filter(function(trimmedRange) {
-        if (trimmedRange) {
-            return true;
-        }
-    });
+  let outputSplitRanges = splitRangesToBeTrimmed.filter(function(trimmedRange) {
+    if (trimmedRange) {
+      return true;
+    }
+  });
 
-    var outputTrimmedRange;
-    if (outputSplitRanges.length < 0) {
+  let outputTrimmedRange;
+  if (outputSplitRanges.length < 0) {
     //do nothing to the output trimmed range
-    } else if (outputSplitRanges.length === 1) {
-        outputTrimmedRange = outputSplitRanges[0];
-    } else if (outputSplitRanges.length === 2) {
-        if (outputSplitRanges[0].start < outputSplitRanges[1].start) {
-            outputTrimmedRange = {
-                start: outputSplitRanges[1].start,
-                end: outputSplitRanges[0].end,
-            };
-        } else {
-            outputTrimmedRange = {
-                start: outputSplitRanges[0].start,
-                end: outputSplitRanges[1].end,
-            };
-        }
+  } else if (outputSplitRanges.length === 1) {
+    outputTrimmedRange = outputSplitRanges[0];
+  } else if (outputSplitRanges.length === 2) {
+    if (outputSplitRanges[0].start < outputSplitRanges[1].start) {
+      outputTrimmedRange = {
+        start: outputSplitRanges[1].start,
+        end: outputSplitRanges[0].end
+      };
+    } else {
+      outputTrimmedRange = {
+        start: outputSplitRanges[0].start,
+        end: outputSplitRanges[1].end
+      };
     }
-    if (outputTrimmedRange) {
-        return _.extend({},rangeToBeTrimmed,{
-            start: outputTrimmedRange.start,
-            end: outputTrimmedRange.end
-        });
-    }
+  }
+  if (outputTrimmedRange) {
+    return _.extend({}, rangeToBeTrimmed, {
+      start: outputTrimmedRange.start,
+      end: outputTrimmedRange.end
+    });
+  }
 };
-
