@@ -59,18 +59,19 @@ function flipFullyContainedRange(innerRange, outerRange, sequenceLength, options
 	var translatedInnerRange = translateRange(innerRange, translateBy, sequenceLength)
 
 	//flip like non origin spanning range 
-	var translatedFlippedInnerRange = flipNonOriginSpanningContainedRange(translatedInnerRange, translatedOuterRange)
+	var translatedFlippedInnerRange = flipNonOriginSpanningContainedRange(translatedInnerRange, translatedOuterRange, sequenceLength)
 
 	//translate inner range back by negative offset 
 	var flippedInnerRange = translateRange(translatedFlippedInnerRange, -translateBy, sequenceLength)
 	return flippedInnerRange
 }
 
-function flipNonOriginSpanningContainedRange(innerRange, outerRange) {
+function flipNonOriginSpanningContainedRange(innerRange, outerRange, sequenceLength) {
     //non origin spanning, fully contained inner
     var offsetFromStart = innerRange.start - outerRange.start
     var newInnerEnd = outerRange.end - offsetFromStart
-    var innerRangeLength = getRangeLength(innerRange)
+		var innerRangeLength = getRangeLength(innerRange, sequenceLength)
+
     return {
 		end: newInnerEnd,
 		start: newInnerEnd - (innerRangeLength -1)
