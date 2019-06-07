@@ -19,7 +19,7 @@ describe('flipContainedRange', function () {
 			end:15
 		})
 	});
-	it.only('non origin spanning outer, origin spanning fully contained inner', function () {
+	it('non origin spanning outer, origin spanning fully contained inner', function () {
 		var innerRange ={
 			start: 3,
 			end: 1
