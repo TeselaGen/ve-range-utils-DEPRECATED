@@ -19,6 +19,22 @@ describe('flipContainedRange', function () {
 			end:15
 		})
 	});
+	it('non origin spanning outer, origin spanning fully contained inner', function () {
+		var innerRange ={
+			start: 3,
+			end: 1
+		}
+		var outerRange = {
+			start: 0,
+			end:3
+		}
+		var sequenceLength = 4
+		var flippedInnerRange = flipContainedRange(innerRange, outerRange, sequenceLength)
+		flippedInnerRange.should.deep.equal({
+			start: 2,
+			end:0
+		})
+	});
 	it('origin spanning outer, non-origin spanning, fully contained inner', function () {
 		var innerRange ={
 			start: 1,
