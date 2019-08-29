@@ -29,7 +29,7 @@
     "eslint-config-teselagen": "^5.0.3",
     "husky": "^0.11.6",
     "in-publish": "^2.0.0",
-    "jest": "^23.6.0",
+    "jest": "^24.9.0",
     "lint-staged": "^9.2.1",
     "mocha": "^2.4.5",
     "nwb": "^0.19.0",
