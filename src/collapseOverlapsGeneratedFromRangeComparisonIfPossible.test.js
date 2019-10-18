@@ -1,9 +1,9 @@
-//var tap = require('tap');
+//const tap = require('tap');
 //tap.mochaGlobals();
 
-var getOverlapsOfPotentiallyCircularRanges = require('./getOverlapsOfPotentiallyCircularRanges.js');
-var collapseOverlapsGeneratedFromRangeComparisonIfPossible = require('./collapseOverlapsGeneratedFromRangeComparisonIfPossible.js');
-var assert = require('assert');
+const getOverlapsOfPotentiallyCircularRanges = require('./getOverlapsOfPotentiallyCircularRanges.js');
+const collapseOverlapsGeneratedFromRangeComparisonIfPossible = require('./collapseOverlapsGeneratedFromRangeComparisonIfPossible.js');
+const assert = require('assert');
 describe('collapseOverlapsGeneratedFromRangeComparisonIfPossible', function() {
     it('returns an empty array if passed an empty array of overlaps', function() {
         assert.deepEqual(collapseOverlapsGeneratedFromRangeComparisonIfPossible([], 1000), []);

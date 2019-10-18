@@ -250,6 +250,10 @@ describe("trimRangeByAnotherRange", function() {
           start: 3,
           end: 2
         },
+        // rrrrrrrrrr
+        // 0123456789
+        // --es------ 
+        // --e s----- 
         {
           start: 4,
           end: 2

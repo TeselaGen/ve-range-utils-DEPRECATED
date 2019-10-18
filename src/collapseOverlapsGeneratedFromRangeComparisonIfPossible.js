@@ -21,10 +21,10 @@ module.exports = function collapseOverlapsGeneratedFromRangeComparisonIfPossible
             return overlaps;
         }
     } else if (overlaps.length === 3) {
-        var firstOverlap = overlaps[0];
-        var secondOverlap = overlaps[1];
-        var thirdOverlap = overlaps[2];
-        var collapsedOverlaps = collapseOverlapsGeneratedFromRangeComparisonIfPossible([firstOverlap, secondOverlap], sequenceLength, optionalOriginalRange);
+        const firstOverlap = overlaps[0];
+        const secondOverlap = overlaps[1];
+        const thirdOverlap = overlaps[2];
+        let collapsedOverlaps = collapseOverlapsGeneratedFromRangeComparisonIfPossible([firstOverlap, secondOverlap], sequenceLength, optionalOriginalRange);
         if (collapsedOverlaps.length === 1) {
             collapsedOverlaps.push(thirdOverlap);
             return collapsedOverlaps;
