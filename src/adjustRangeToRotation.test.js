@@ -19,6 +19,13 @@ describe('adjustRangeToRotation', function() {
         assert.deepEqual(adjustRangeToRotation({
             start: 1,
             end: 2
+        }, undefined, 10), {
+            start: 1,
+            end: 2
+        });
+        assert.deepEqual(adjustRangeToRotation({
+            start: 1,
+            end: 2
         }, 2, 10), {
             start: 9,
             end: 0
