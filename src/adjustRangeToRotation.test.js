@@ -4,6 +4,50 @@
 const adjustRangeToRotation = require('./adjustRangeToRotation.js');
 const assert = require('assert');
 describe('adjustRangeToRotation', function() {
+    it('defaults to a rotateBy=0 if a null or undefined is passed ', () => {
+        assert.deepEqual(adjustRangeToRotation({
+            start: 1,
+            end: 2
+        }, null, 10), {
+            start: 1,
+            end: 2
+        });
+        
+        assert.deepEqual(adjustRangeToRotation({
+            start: 1,
+            end: 2
+        }, undefined, 10), {
+            start: 1,
+            end: 2
+        });
+        assert.deepEqual(adjustRangeToRotation({
+            start: 1,
+            end: 2
+        }, NaN, 10), {
+            start: 1,
+            end: 2
+        });
+
+    });
+    it('defaults to an infinite length if no length is passed', () => {
+        assert.deepEqual(adjustRangeToRotation({
+            start: 1,
+            end: 2
+        }, 1, null), {
+            start: 0,
+            end: 1
+        });
+        assert.deepEqual(adjustRangeToRotation({
+            start: 1,
+            end: 2
+        }, 1, undefined), {
+            start: 0,
+            end: 1
+        });
+        
+        
+
+    });
     it('shifts start and end if rotating before non circular range', function() {
         //0123456789
         //atgcatgccc

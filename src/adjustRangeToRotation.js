@@ -1,18 +1,23 @@
-// const ac = require('ve-api-check'); 
+// const ac = require('ve-api-check');
 const { assign } = require("lodash");
+const {identity} = require('lodash');
 
-module.exports = function adjustRangeToRotation(rangeToBeAdjusted, rotateTo=0, rangeLength) {
-    // ac.throw([ac.range, ac.posInt, ac.posInt], arguments);
-    const newRange = assign({}, rangeToBeAdjusted, {
-        start: mod(rangeToBeAdjusted.start - rotateTo, rangeLength),
-        end: mod(rangeToBeAdjusted.end - rotateTo, rangeLength)
-    });
-   
-    return newRange;
+module.exports = function adjustRangeToRotation(
+  rangeToBeAdjusted,
+  rotateTo = 0,
+  rangeLength
+) {
+  // ac.throw([ac.range, ac.posInt, ac.posInt], arguments);
+  const mod = rangeLength ? modulo : identity 
+
+  const newRange = assign({}, rangeToBeAdjusted, {
+    start: mod(rangeToBeAdjusted.start - (rotateTo || 0), rangeLength),
+    end: mod(rangeToBeAdjusted.end - (rotateTo || 0), rangeLength)
+  });
+
+  return newRange;
 };
 
-
-function mod(n, m) {
-    return (n % m + m) % m;
-  }
-  
+function modulo(n, m) {
+  return ((n % m) + m) % m;
+}

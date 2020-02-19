@@ -18,7 +18,6 @@ describe('getRangeAngles', function () {
 		Object.keys(angles).forEach(function(key){
 			anglesInRadians[key] = angles[key]*360/Math.PI/2
 		});
-		console.log('anglesInRadians: ' + JSON.stringify(anglesInRadians,null,4));
 
 		// console.log('anglesInRadians: ' + JSON.stringify(anglesInRadians,null,4));
 		assert(anglesInRadians.startAngle === 36)
@@ -30,7 +29,6 @@ describe('getRangeAngles', function () {
 				anglesInRadians[key] = angles[key]*360/Math.PI/2
 			});
 			// console.log('anglesInRadians:',anglesInRadians)
-		console.log('anglesInRadians: ' + JSON.stringify(anglesInRadians,null,4));
 
 			// console.log('anglesInRadians: ' + JSON.stringify(anglesInRadians,null,4));
 			assert(anglesInRadians.startAngle ===  i ===0 ? 36 : 108)
