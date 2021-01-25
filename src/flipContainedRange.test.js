@@ -1,3 +1,4 @@
+/* eslint-disable no-var*/ 
 var flipContainedRange = require('./flipContainedRange');
 var chai = require('chai')
 chai.should();
