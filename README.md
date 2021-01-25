@@ -1,5 +1,6 @@
 <!-- TOC -->
 
+- [[CHANGELOG](Changelog.md)](#changelogchangelogmd)
 - [About this Repo](#about-this-repo)
 - [Editing This Repo:](#editing-this-repo)
   - [All collaborators:](#all-collaborators)
@@ -9,6 +10,7 @@
 
 <!-- /TOC -->
 
+## [CHANGELOG](Changelog.md)
 ## About this Repo
 This is a collection of range utility functions.
 
