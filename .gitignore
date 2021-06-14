@@ -1,8 +1,4 @@
-.git/
-node_modules/
-stats.json
-bundle.js
+*.log
 .DS_Store
-npm-debug.log
-lib/
-es/
+node_modules
+dist
