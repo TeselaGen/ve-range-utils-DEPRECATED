@@ -1,14 +1,15 @@
 // const ac = require('ve-api-check');
-const { assign } = require("lodash");
-const {identity} = require('lodash');
+import { assign } from "lodash";
+import { identity } from "lodash";
+import { AnnRange } from "./types";
 
 export function adjustRangeToRotation(
-  rangeToBeAdjusted,
+  rangeToBeAdjusted: AnnRange,
   rotateTo = 0,
-  rangeLength
+  rangeLength: number
 ) {
   // ac.throw([ac.range, ac.posInt, ac.posInt], arguments);
-  const mod = rangeLength ? modulo : identity 
+  const mod = rangeLength ? modulo : identity
 
   const newRange = assign({}, rangeToBeAdjusted, {
     start: mod(rangeToBeAdjusted.start - (rotateTo || 0), rangeLength),
@@ -18,6 +19,6 @@ export function adjustRangeToRotation(
   return newRange;
 };
 
-function modulo(n, m) {
+function modulo(n: number, m: number) {
   return ((n % m) + m) % m;
 }

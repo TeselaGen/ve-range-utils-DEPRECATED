@@ -1,7 +1,8 @@
-// const ac = require('ve-api-check'); 
+import { AnnRange } from "./types";
+
 const { assign } = require("lodash");
 
-`export function` adjustRangeToInsert(rangeToBeAdjusted, insertStart, insertLength) {
+export function adjustRangeToInsert(rangeToBeAdjusted: AnnRange, insertStart: number, insertLength: number) {
     // ac.throw([ac.range, ac.posInt, ac.posInt], arguments);
     const newRange = assign({}, rangeToBeAdjusted);
     if (rangeToBeAdjusted.start > rangeToBeAdjusted.end) {

@@ -1,6 +1,9 @@
 // var ac = require('ve-api-check'); 
+
+import { AnnRange } from "./types";
+
   // ac.throw([ac.posInt, ac.posInt, ac.bool], arguments);
-export function checkIfNonCircularRangesOverlap(range, comparisonRange) {
+export function checkIfNonCircularRangesOverlap(range: AnnRange, comparisonRange: AnnRange) {
     // ac.throw([ac.range, ac.range], arguments);
     if (range.start < comparisonRange.start) {
         if (range.end < comparisonRange.start) {
