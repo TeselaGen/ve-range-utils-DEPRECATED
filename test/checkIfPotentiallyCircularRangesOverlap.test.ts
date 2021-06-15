@@ -1,10 +1,10 @@
 // var tap = require('tap');
 // tap.mochaGlobals();
-var expect = require('chai').expect;
-var checkIfPotentiallyCircularRangesOverlap = require('./checkIfPotentiallyCircularRangesOverlap.js');
+import { expect as expect } from "chai";
+import { checkIfPotentiallyCircularRangesOverlap } from "../src";
 // checkIfPotentiallyCircularRangesOverlap(frame, sequence, minimumOrfSize, forward, circular)
-describe('checkIfPotentiallyCircularRangesOverlap', function() {
-    it('returns true if ranges do overlap', function() {
+describe('checkIfPotentiallyCircularRangesOverlap', function () {
+    it('returns true if ranges do overlap', function () {
         expect(checkIfPotentiallyCircularRangesOverlap({
             start: 5,
             end: 100
@@ -48,7 +48,7 @@ describe('checkIfPotentiallyCircularRangesOverlap', function() {
             end: 51
         })).to.equal(true);
     });
-    it('returns false if ranges do not overlap', function() {
+    it('returns false if ranges do not overlap', function () {
         expect(checkIfPotentiallyCircularRangesOverlap({
             start: 5,
             end: 100

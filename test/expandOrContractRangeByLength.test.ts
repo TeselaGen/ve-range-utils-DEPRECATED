@@ -1,5 +1,5 @@
-var expandOrContractRangeByLength = require('./expandOrContractRangeByLength');
-var chai = require('chai')
+import {expandOrContractRangeByLength} from "../src";
+import chai from "chai";
 var expect = chai.expect
 chai.should();
 

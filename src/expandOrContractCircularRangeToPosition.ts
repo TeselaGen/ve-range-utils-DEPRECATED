@@ -1,6 +1,8 @@
-var normalizePositionByRangeLength = require('./normalizePositionByRangeLength');
-const { assign } = require("lodash");
-export function expandOrContractCircularRangeToPosition(range, position, maxLength) {
+import { AnnRange } from "./types";
+
+import { normalizePositionByRangeLength } from "./normalizePositionByRangeLength";
+import { assign } from "lodash";
+export function expandOrContractCircularRangeToPosition(range: AnnRange, position: number, maxLength: number) {
 
     // 0 1 2 3 4 5 6 7 8 9
     // r r r r r - - r r r
@@ -34,7 +36,7 @@ export function expandOrContractCircularRangeToPosition(range, position, maxLeng
         }
     }
     return ({
-        newRange: newRange, 
+        newRange: newRange,
         endMoved: endMoved
     })
 }

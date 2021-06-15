@@ -1,6 +1,6 @@
 import { AnnRange } from "./types";
 
-// var ac = require('ve-api-check'); 
+ 
 export  function trimNonCicularRangeByAnotherNonCircularRange(rangeToBeTrimmed: AnnRange, trimmingRange: AnnRange) {
     // ac.throw([ac.range, ac.range], arguments);
     let outputTrimmedRange;

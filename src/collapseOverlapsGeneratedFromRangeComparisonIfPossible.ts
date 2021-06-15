@@ -3,7 +3,7 @@
 //this function is a little confusing, but basically it takes an array of overlaps 
 //generated from a range overlaps calculation, and it sews them together if possible
 import { AnnRange } from "./types";
-export function collapseOverlapsGeneratedFromRangeComparisonIfPossible(overlaps: AnnRange[], sequenceLength: number, optionalOriginalRange: AnnRange) {
+export function collapseOverlapsGeneratedFromRangeComparisonIfPossible(overlaps: AnnRange[], sequenceLength: number, optionalOriginalRange?: AnnRange): AnnRange[] {
     const originalRangeLinear = optionalOriginalRange && (optionalOriginalRange.start <= optionalOriginalRange.end)
     if (overlaps.length === 1 || overlaps.length === 0) {
         return overlaps;
@@ -44,5 +44,7 @@ export function collapseOverlapsGeneratedFromRangeComparisonIfPossible(overlaps:
                 }
             }
         }
+    } else {
+        return []
     }
 };

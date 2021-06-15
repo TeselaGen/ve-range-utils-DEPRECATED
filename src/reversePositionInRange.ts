@@ -1,5 +1,5 @@
-// var ac = require('ve-api-check');
-export function reversePositionInRange(position, rangeLength, isInBetweenPositions) {
+
+export function reversePositionInRange(position: number, rangeLength: number, isInBetweenPositions: boolean) {
     //isInBetweenPositions refers to:
     // A T G C
     // 0 1 2 3    <--  isInBetweenPositions = false is counting the positions themselves

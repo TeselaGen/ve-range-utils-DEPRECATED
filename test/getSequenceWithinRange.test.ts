@@ -7,11 +7,11 @@ var subseq;
 describe('getSequenceWithinRange', function() {
     it('works with an array (translation amino acids for example) as well', function() {
         subseq = getSequenceWithinRange({start: 0,end:0},['a','t','g','c']);
-        assert.deepEqual(subseq, ['a']);
+        assert.deepStrictEqual(subseq, ['a']);
         subseq = getSequenceWithinRange({start: 1,end:1},['a','t','g','c']);
-        assert.deepEqual(subseq, ['t']);
+        assert.deepStrictEqual(subseq, ['t']);
         subseq = getSequenceWithinRange({start: 1,end:0},['a','t','g','c']);
-        assert.deepEqual(subseq, ['t','g','c','a']);
+        assert.deepStrictEqual(subseq, ['t','g','c','a']);
     });
     it('gets a non circular range', function() {
         subseq = getSequenceWithinRange({start: 0,end:0},'atgc');
@@ -23,26 +23,26 @@ describe('getSequenceWithinRange', function() {
     });
     it('gets a circular range', function() {
         subseq = getSequenceWithinRange({start: 1,end:0},'atgc');
-        assert.deepEqual(subseq, 'tgca');
+        assert.deepStrictEqual(subseq, 'tgca');
         subseq = getSequenceWithinRange({start: 2,end:1},'atgc');
-        assert.deepEqual(subseq, 'gcat');
+        assert.deepStrictEqual(subseq, 'gcat');
         subseq = getSequenceWithinRange({start: 3,end:0},'atgc');
-        assert.deepEqual(subseq, 'ca');
+        assert.deepStrictEqual(subseq, 'ca');
     });
     it('gets a circular range', function() {
         subseq = getSequenceWithinRange({start: 1,end:0},'atgc');
-        assert.deepEqual(subseq, 'tgca');
+        assert.deepStrictEqual(subseq, 'tgca');
         subseq = getSequenceWithinRange({start: 2,end:1},'atgc');
-        assert.deepEqual(subseq, 'gcat');
+        assert.deepStrictEqual(subseq, 'gcat');
         subseq = getSequenceWithinRange({start: 3,end:0},'atgc');
-        assert.deepEqual(subseq, 'ca');
+        assert.deepStrictEqual(subseq, 'ca');
     });
     it('returns an empty string if the range is invalid', function() {
         subseq = getSequenceWithinRange({start: -1,end:0},'atgc');
-        assert.deepEqual(subseq, '');
+        assert.deepStrictEqual(subseq, '');
         subseq = getSequenceWithinRange({start: -1,end:-1},'atgc');
-        assert.deepEqual(subseq, '');
+        assert.deepStrictEqual(subseq, '');
         subseq = getSequenceWithinRange({start: 3,end:-1},'atgc');
-        assert.deepEqual(subseq, '');
+        assert.deepStrictEqual(subseq, '');
     });
 });

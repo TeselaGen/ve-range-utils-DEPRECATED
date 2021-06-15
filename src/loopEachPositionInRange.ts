@@ -1,4 +1,6 @@
-var getEachPositionInRangeAsArray = require('./getEachPositionInRangeAsArray');
-export function loopEachPositionInRange(range, rangeMax, func) {
-    getEachPositionInRangeAsArray(range,rangeMax).map(func)
+import { AnnRange } from "./types";
+
+import { getEachPositionInRangeAsArray } from "./getEachPositionInRangeAsArray";
+export function loopEachPositionInRange(range: AnnRange, rangeMax: number, func: (pos: number, i: number) => any) {
+    getEachPositionInRangeAsArray(range, rangeMax).map(func)
 }

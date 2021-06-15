@@ -1,11 +1,12 @@
 //TNR: THIS METHOD ONLY WORKS FOR COMPARING 0-BASED RANGES!!!!!!
-let trimRangeByAnotherRange = require("./trimRangeByAnotherRange");
+import { trimRangeByAnotherRange } from "./trimRangeByAnotherRange";
+import { AnnRange } from "./types";
 export function isRangeWithinRange(
-  rangeToCheck,
-  containingRange,
-  maxLength
+  rangeToCheck: AnnRange,
+  containingRange: AnnRange,
+  maxLength: number
 ) {
-    
+
   let ranges = trimRangeByAnotherRange(
     rangeToCheck,
     containingRange,

@@ -1,4 +1,3 @@
-// const ac = require('ve-api-check');
 import { assign } from "lodash";
 import { identity } from "lodash";
 import { AnnRange } from "./types";

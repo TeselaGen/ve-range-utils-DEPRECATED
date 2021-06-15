@@ -1,6 +1,7 @@
-const getRangeLength = require("./getRangeLength");
+import { getRangeLength } from "./getRangeLength";
+import { AnnRange, RangeAngles } from "./types";
 
-export function getRangeAngles(range, rangeMax) {
+export function getRangeAngles(range: AnnRange, rangeMax: number): RangeAngles {
   const { startAngle, totalAngle, endAngle } = getStartEndAndTotalAngle(
     range,
     rangeMax
@@ -10,13 +11,13 @@ export function getRangeAngles(range, rangeMax) {
     totalAngle,
     endAngle,
     centerAngle: startAngle + totalAngle / 2,
-    locationAngles: range.locations && range.locations.map((location) => {
-        return getRangeAngles(location, rangeMax)
-    })
+    locationAngles: range.locations ? range.locations.map((location) => {
+      return getRangeAngles(location, rangeMax)
+    }) : undefined
   };
 };
 
-function getStartEndAndTotalAngle(range, rangeMax) {
+function getStartEndAndTotalAngle(range: AnnRange, rangeMax: number) {
   const rangeLength = getRangeLength(range, rangeMax);
 
   return {

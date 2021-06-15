@@ -46,14 +46,16 @@
   ],
   "devDependencies": {
     "@size-limit/preset-small-lib": "^4.12.0",
+    "@types/lodash": "npm:@types/lodash-es",
+    "chai": "^4.3.4",
     "husky": "^6.0.0",
     "size-limit": "^4.12.0",
     "tsdx": "^0.14.1",
     "tslib": "^2.3.0",
-    "typescript": "^4.3.2",
-    "@types/lodash": "npm:@types/lodash-es"
+    "typescript": "^4.3.2"
   },
   "dependencies": {
+    "@types/chai": "^4.2.18",
     "lodash": "^4.17.21"
   }
 }

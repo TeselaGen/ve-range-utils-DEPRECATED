@@ -1,36 +1,38 @@
-var expandOrContractRangeByLength = require('./expandOrContractRangeByLength');
-var isRangeWithinRange = require('./isRangeWithinRange');
-var getOverlapsOfPotentiallyCircularRanges = require('./getOverlapsOfPotentiallyCircularRanges');
-var translateRange = require('./translateRange');
+import { expandOrContractRangeByLength } from "./expandOrContractRangeByLength";
+import { isRangeWithinRange } from "./isRangeWithinRange";
+import { getOverlapsOfPotentiallyCircularRanges } from "./getOverlapsOfPotentiallyCircularRanges";
+import { translateRange } from "./translateRange";
 
-var getRangeLength = require('./getRangeLength');
-export function flipRelativeRange(innerRange, outerRange, sequenceLength, options) {
-	var isFullyContained = isRangeWithinRange(innerRange,outerRange,sequenceLength)
+import { getRangeLength } from "./getRangeLength";
+import { AnnRange } from "./types";
+
+export function flipContainedRange(innerRange: AnnRange, outerRange: AnnRange, sequenceLength: number) {
+	var isFullyContained = isRangeWithinRange(innerRange, outerRange, sequenceLength)
 	if (isFullyContained) {
-		return flipFullyContainedRange(innerRange,outerRange,sequenceLength)
+		return flipFullyContainedRange(innerRange, outerRange, sequenceLength)
 	}
 	else {
 		// flip not fully contained range
-		return flipNonFullyContainedRange(innerRange,outerRange,sequenceLength)
+		return flipNonFullyContainedRange(innerRange, outerRange, sequenceLength)
 	}
 }
 
-function flipNonFullyContainedRange(innerRange, outerRange, sequenceLength, options) {
-	var outerFullyContained = isRangeWithinRange(outerRange, innerRange,sequenceLength)
+function flipNonFullyContainedRange(innerRange: AnnRange, outerRange: AnnRange, sequenceLength: number) {
+	var outerFullyContained = isRangeWithinRange(outerRange, innerRange, sequenceLength)
 	var flippedInnerRange
 	if (outerFullyContained) {
 		//special logic
 		// flipFullyContainedRange(outerRange, outerRange, sequenceLength)
 		var expandBy1 = getRangeLength({
-					start: innerRange.start,
-					end: outerRange.start
-				},sequenceLength) - 1
+			start: innerRange.start,
+			end: outerRange.start
+		}, sequenceLength) - 1
 		flippedInnerRange = expandOrContractRangeByLength(outerRange, expandBy1, false, sequenceLength)
 
 		var expandBy2 = getRangeLength({
-					end: innerRange.end,
-					start: outerRange.end
-				},sequenceLength) - 1
+			end: innerRange.end,
+			start: outerRange.end
+		}, sequenceLength) - 1
 		flippedInnerRange = expandOrContractRangeByLength(flippedInnerRange, expandBy2, true, sequenceLength)
 	} else {
 		//find overlaps of ranges
@@ -43,7 +45,7 @@ function flipNonFullyContainedRange(innerRange, outerRange, sequenceLength, opti
 			//flip using fully contained logic
 			var flippedTruncatedInner = flipFullyContainedRange(firstOverlap, outerRange, sequenceLength)
 			//extend in the opposite direction
-			var lengthToExtend = getRangeLength(innerRange,sequenceLength) - getRangeLength(flippedTruncatedInner, sequenceLength)
+			var lengthToExtend = getRangeLength(innerRange, sequenceLength) - getRangeLength(flippedTruncatedInner, sequenceLength)
 			flippedInnerRange = expandOrContractRangeByLength(flippedTruncatedInner, lengthToExtend, overlapExtendsForward, sequenceLength)
 		} else {
 			throw new Error('This case (relative ranges that do not overlap) is unsupported! ')
@@ -52,7 +54,7 @@ function flipNonFullyContainedRange(innerRange, outerRange, sequenceLength, opti
 	return flippedInnerRange
 }
 
-function flipFullyContainedRange(innerRange, outerRange, sequenceLength, options) {
+function flipFullyContainedRange(innerRange: AnnRange, outerRange: AnnRange, sequenceLength: number) {
 	//translate both ranges by offset such that outer range start = 0
 	var translateBy = -outerRange.start
 	var translatedOuterRange = translateRange(outerRange, translateBy, sequenceLength)
@@ -66,16 +68,16 @@ function flipFullyContainedRange(innerRange, outerRange, sequenceLength, options
 	return flippedInnerRange
 }
 
-function flipNonOriginSpanningContainedRange(innerRange, outerRange, sequenceLength) {
-    //non origin spanning, fully contained inner
-    var offsetFromStart = innerRange.start - outerRange.start
-    var newInnerEnd = outerRange.end - offsetFromStart
-		var innerRangeLength = getRangeLength(innerRange, sequenceLength)
+function flipNonOriginSpanningContainedRange(innerRange: AnnRange, outerRange: AnnRange, sequenceLength: number) {
+	//non origin spanning, fully contained inner
+	var offsetFromStart = innerRange.start - outerRange.start
+	var newInnerEnd = outerRange.end - offsetFromStart
+	var innerRangeLength = getRangeLength(innerRange, sequenceLength)
 
-    return {
+	return {
 		end: newInnerEnd,
-		start: newInnerEnd - (innerRangeLength -1)
-    }
+		start: newInnerEnd - (innerRangeLength - 1)
+	}
 }
 
 

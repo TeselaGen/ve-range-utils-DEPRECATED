@@ -1,6 +1,6 @@
 import { AnnRange } from "./types";
 
-const { assign } = require("lodash");
+import { assign } from "lodash";
 
 export function adjustRangeToInsert(rangeToBeAdjusted: AnnRange, insertStart: number, insertLength: number) {
     // ac.throw([ac.range, ac.posInt, ac.posInt], arguments);

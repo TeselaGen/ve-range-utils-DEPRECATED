@@ -1,3 +1,4 @@
+export { adjustRangeToDeletionOfAnotherRange } from './adjustRangeToDeletionOfAnotherRange'
 export { adjustRangeToInsert } from "./adjustRangeToInsert";
 export { checkIfNonCircularRangesOverlap } from "./checkIfNonCircularRangesOverlap";
 export { checkIfPotentiallyCircularRangesOverlap } from "./checkIfPotentiallyCircularRangesOverlap";
