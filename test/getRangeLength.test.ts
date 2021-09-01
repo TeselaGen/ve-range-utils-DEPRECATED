@@ -7,8 +7,8 @@
 // 3 1
 //  2
 
-var assert = require('assert');
-var getRangeLength = require('./getRangeLength');
+import * as assert from "assert";
+import { getRangeLength } from "../src";
 describe('getRangeLength', function () {
 	it('should return the correct length for ranges that cross the origin', function (done) {
 		var length = getRangeLength({start: 9,end:0},10)

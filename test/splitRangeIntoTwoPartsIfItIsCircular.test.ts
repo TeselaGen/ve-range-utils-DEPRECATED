@@ -1,6 +1,6 @@
 
 import { splitRangeIntoTwoPartsIfItIsCircular } from "../src";
-import assert from "assert";
+import * as assert from "assert";
 
 describe('splitRangeIntoTwoPartsIfItIsCircular', function () {
     it('returns an array with one range in it if the array is non-circular', function () {

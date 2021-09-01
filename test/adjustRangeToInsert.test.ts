@@ -1,8 +1,7 @@
-//var tap = require('tap');
-//tap.mochaGlobals();
+
 
 import { adjustRangeToInsert } from "../src";
-import assert from "assert";
+import * as assert from "assert";
 describe('adjustRangeToInsert', function () {
     it('shifts start and end if inserting before non circular range', function () {
         assert.deepStrictEqual(adjustRangeToInsert({

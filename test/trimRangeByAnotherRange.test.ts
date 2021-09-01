@@ -1,5 +1,5 @@
 import { trimRangeByAnotherRange } from "../src";
-import assert from "assert";
+import * as assert from "assert";
 describe("trimRangeByAnotherRange", function () {
   it("trims non circular ranges that dont fully overlap", function () {
     assert.deepStrictEqual(

@@ -1,5 +1,5 @@
 import { adjustRangeToDeletionOfAnotherRange } from "../src";
-import assert from "assert";
+import * as assert from "assert";
 describe('adjustRangeToDeletionOfAnotherRange', function () {
     it('deletes non circular range if fully overlapped', function () {
         assert.deepStrictEqual(adjustRangeToDeletionOfAnotherRange({

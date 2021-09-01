@@ -24,7 +24,7 @@ export type RangeAngles = {
 
 
 
-export type AnnRangeTypeOptions = {
+export type InclusiveOpts = {
   inclusive1BasedStart?: boolean;
   inclusive1BasedEnd?: boolean;
 }

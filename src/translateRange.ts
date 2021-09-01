@@ -1,7 +1,8 @@
 import { AnnRange } from "./types";
 
-const { assign } = require("lodash");
-var normalizePositionByRangeLength = require('./normalizePositionByRangeLength');
+import { assign } from "lodash";
+import { normalizePositionByRangeLength } from "./normalizePositionByRangeLength";
+
 export function translateRange(rangeToBeAdjusted: AnnRange, translateBy: number, rangeLength: number) {
     return assign({}, rangeToBeAdjusted, {
         start: normalizePositionByRangeLength(rangeToBeAdjusted.start + translateBy, rangeLength),

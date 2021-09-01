@@ -1,7 +1,6 @@
-//var tap = require('tap');
-//tap.mochaGlobals();
-var getSequenceWithinRange = require('./getSequenceWithinRange.js');
-var assert = require('assert');
+
+import * as assert from "assert";
+import { getSequenceWithinRange } from "../src";
 var subseq;
 
 describe('getSequenceWithinRange', function() {

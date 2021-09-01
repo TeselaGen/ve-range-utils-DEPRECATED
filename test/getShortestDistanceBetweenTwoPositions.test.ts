@@ -1,5 +1,5 @@
-var assert = require('assert');
-var getShortestDistanceBetweenTwoPositions = require('./getShortestDistanceBetweenTwoPositions');
+import * as assert from "assert";
+import { getShortestDistanceBetweenTwoPositions } from "../src";
 describe('getShortestDistanceBetweenTwoPositions', function () {
 	it('should return the correct length for positions that cross the origin', function (done) {
 		var length = getShortestDistanceBetweenTwoPositions(9,0,10)

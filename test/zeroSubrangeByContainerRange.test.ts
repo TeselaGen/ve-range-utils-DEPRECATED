@@ -1,7 +1,6 @@
-//var tap = require('tap');
-//tap.mochaGlobals();
-var expect = require('chai').expect;
-var zeroSubrangeByContainerRange = require('./zeroSubrangeByContainerRange.js');
+
+import { expect as expect } from "chai";
+import { zeroSubrangeByContainerRange } from "../src";
 // var collapseOverlapsGeneratedFromRangeComparisonIfPossible = require('./collapseOverlapsGeneratedFromRangeComparisonIfPossible.js');
 describe('zeroSubrangeByContainerRange', function() {
     it('throws an error if circular subRange does not fit within container range', function() {

@@ -1,6 +1,6 @@
 /* eslint-disable no-var*/
 import { flipContainedRange } from "../src";
-import chai from "chai";
+import * as chai from "chai";
 chai.should();
 
 describe('flipContainedRange', function () {

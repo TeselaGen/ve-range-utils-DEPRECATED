@@ -1,5 +1,5 @@
-var translateRange = require('./translateRange')
-var expect = require('chai').expect
+import { expect as expect } from "chai";
+import { translateRange } from "../src";
 
 describe('translateRange', function() {
     it('should correctly translate a range', function() {

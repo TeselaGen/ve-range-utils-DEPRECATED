@@ -1,6 +1,6 @@
 
-var invertRange = require('./invertRange');
-var chai = require('chai')
+import * as chai from "chai";
+import { invertRange } from "../src";
 chai.should();
 describe('invertRange', function () {
 	it('should invert a non-circular range', function () {

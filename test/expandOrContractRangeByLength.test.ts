@@ -1,6 +1,5 @@
 import {expandOrContractRangeByLength} from "../src";
-import chai from "chai";
-var expect = chai.expect
+import * as chai from "chai";
 chai.should();
 
 describe('expandOrContractRangeByLength', function () {

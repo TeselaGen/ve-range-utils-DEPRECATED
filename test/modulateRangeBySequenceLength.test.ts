@@ -1,5 +1,5 @@
-var expect = require('chai').expect
-var modulateRangeBySequenceLength = require('./modulateRangeBySequenceLength')
+import { expect as expect } from "chai";
+import { modulateRangeBySequenceLength } from "../src";
 describe('modulateRangeBySequenceLength', function() {
     it('should modulate ranges that are outside of the sequence length', function() {
         //agtc

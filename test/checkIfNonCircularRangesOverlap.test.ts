@@ -1,5 +1,4 @@
-// var tap = require('tap');
-// tap.mochaGlobals();
+
 import { expect as expect } from "chai";
 import { checkIfNonCircularRangesOverlap } from "../src";
 // checkIfNonCircularRangesOverlap(frame, sequence, minimumOrfSize, forward, circular)

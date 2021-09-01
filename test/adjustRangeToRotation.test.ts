@@ -1,8 +1,7 @@
-//const tap = require('tap');
-//tap.mochaGlobals();
+
 
 import { adjustRangeToRotation } from "../src";
-import assert from "assert";
+import * as assert from "assert";
 describe('adjustRangeToRotation', function () {
     it('defaults to a rotateBy=0 if a null or undefined is passed ', () => {
         assert.deepStrictEqual(adjustRangeToRotation({

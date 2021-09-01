@@ -1,5 +1,5 @@
-var assert = require('assert');
-var getLengthOfOverlappingRegionsBetweenTwoRanges = require('./getLengthOfOverlappingRegionsBetweenTwoRanges');
+import * as assert from "assert";
+import { getLengthOfOverlappingRegionsBetweenTwoRanges } from "../src";
 describe('getLengthOfOverlappingRegionsBetweenTwoRanges', function () {
 	it('should get the length of the overlaps in a simple case', function () {
 		var length = getLengthOfOverlappingRegionsBetweenTwoRanges({

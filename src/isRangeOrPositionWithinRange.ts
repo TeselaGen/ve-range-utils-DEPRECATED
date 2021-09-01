@@ -5,11 +5,11 @@ import { isRangeWithinRange } from "./isRangeWithinRange";
 import { isPositionWithinRange } from "./isPositionWithinRange";
 
 export function isRangeOrPositionWithinRange(
-  rangeOrPositionToCheck: AnnRange | number,
+  rangeOrPositionToCheck: null | AnnRange | number,
   containingRange: AnnRange,
-  maxLength: number,
-  includeStartEdge: boolean,
-  includeEndEdge: boolean
+  maxLength?: number,
+  includeStartEdge?: boolean,
+  includeEndEdge?: boolean
 ) {
 
   if (rangeOrPositionToCheck === undefined || rangeOrPositionToCheck === null ||
@@ -19,11 +19,11 @@ export function isRangeOrPositionWithinRange(
   if (isObject(rangeOrPositionToCheck)) {
     return isRangeWithinRange(rangeOrPositionToCheck,
       containingRange,
-      maxLength)
+      maxLength || Infinity)
   } else {
     return isPositionWithinRange(rangeOrPositionToCheck,
       containingRange,
-      maxLength,
+      maxLength || Infinity,
       includeStartEdge,
       includeEndEdge)
   }

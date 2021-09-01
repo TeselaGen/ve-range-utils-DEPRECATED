@@ -1,6 +1,6 @@
+import { checkIfPotentiallyCircularRangesOverlap } from "./checkIfPotentiallyCircularRangesOverlap";
 import { AnnRange } from "./types";
 export type YOffsetLevelsWithRangesType = AnnRange[][]
-const checkIfPotentiallyCircularRangesOverlap = require('./checkIfPotentiallyCircularRangesOverlap');
 export function getYOffsetForPotentiallyCircularRange(range: AnnRange, YOffsetLevelsWithRanges: YOffsetLevelsWithRangesType, assignYOffsetToRange?: boolean): number {
     //adjust the yOffset of the range being pushed in by checking its range against other range already in the row
     let yOffset = 0;

@@ -1,5 +1,5 @@
-const src = require("./index");
-const fs = require("fs");
+import * as src from "../src";
+import fs from "fs";
 
 describe("index.js", () => {
   it(`should export all functions defined`, done => {
@@ -8,7 +8,7 @@ describe("index.js", () => {
       files.forEach(file => {
         if (
           file.indexOf(".test.js") > -1 ||
-          file.indexOf("index.js") > -1 
+          file.indexOf("index.js") > -1
         ) {
           return;
         }

@@ -12,8 +12,8 @@ export function isPositionWithinRange(
   position: number,
   range: AnnRange,
   sequenceLength: number,
-  includeStartEdge: boolean,
-  includeEndEdge: boolean
+  includeStartEdge?: boolean,
+  includeEndEdge?: boolean
 ) {
   const ranges = splitRangeIntoTwoPartsIfItIsCircular(range, sequenceLength);
   const positionFits = ranges.some(function (range) {

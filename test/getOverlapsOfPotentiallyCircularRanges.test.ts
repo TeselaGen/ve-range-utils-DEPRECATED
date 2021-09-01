@@ -1,5 +1,5 @@
 import {getOverlapsOfPotentiallyCircularRanges} from "../src";
-import assert from "assert";
+import * as assert from "assert";
 describe("getOverlapsOfPotentiallyCircularRanges", function () {
   it("doesnt return an overlap for non overlapping ranges", function () {
     assert.deepStrictEqual(

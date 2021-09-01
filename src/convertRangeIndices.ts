@@ -1,6 +1,6 @@
 import { assign } from "lodash";
-import { AnnRange, AnnRangeTypeOptions } from "./types";
-export function convertRangeIndices(range: AnnRange, inputType?: AnnRangeTypeOptions, outputType?: AnnRangeTypeOptions) {
+import { AnnRange, InclusiveOpts } from "./types";
+export function convertRangeIndices(range: AnnRange, inputType?: InclusiveOpts, outputType?: InclusiveOpts) {
     return assign({}, range, {
         start: Number(range.start) + ((inputType || {}).inclusive1BasedStart
             ? (outputType || {}).inclusive1BasedStart

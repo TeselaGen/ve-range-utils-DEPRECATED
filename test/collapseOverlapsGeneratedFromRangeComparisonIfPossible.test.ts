@@ -1,9 +1,8 @@
-//const tap = require('tap');
-//tap.mochaGlobals();
+
 
 import { getOverlapsOfPotentiallyCircularRanges } from "../src";
 import { collapseOverlapsGeneratedFromRangeComparisonIfPossible } from "../src";
-import assert from "assert";
+import * as assert from "assert";
 describe('collapseOverlapsGeneratedFromRangeComparisonIfPossible', function () {
     it('returns an empty array if passed an empty array of overlaps', function () {
         assert.deepStrictEqual(collapseOverlapsGeneratedFromRangeComparisonIfPossible([], 1000), []);
