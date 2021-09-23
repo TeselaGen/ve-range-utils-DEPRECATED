@@ -21,8 +21,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "lodash": "^4.17.4",
-    "validate.io-nonnegative-integer-array": "^1.0.1"
+    "lodash": "^4.17.4"
   },
   "devDependencies": {
     "auto-changelog": "^2.2.1",

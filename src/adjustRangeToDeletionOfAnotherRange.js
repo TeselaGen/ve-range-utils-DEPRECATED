@@ -1,4 +1,3 @@
-// const areNonNegativeIntegers = require('validate.io-nonnegative-integer-array');
 const splitRangeIntoTwoPartsIfItIsCircular = require('./splitRangeIntoTwoPartsIfItIsCircular');
 const trimRangeByAnotherRange = require('./trimRangeByAnotherRange');
 // const ac = require('ve-api-check'); 
