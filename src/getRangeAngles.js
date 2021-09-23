@@ -10,18 +10,23 @@ module.exports = function getRangeAngles(range, rangeMax) {
     totalAngle,
     endAngle,
     centerAngle: startAngle + totalAngle / 2,
-    locationAngles: range.locations && range.locations.map((location) => {
-        return getRangeAngles(location, rangeMax)
-    })
+    locationAngles:
+      range.locations &&
+      range.locations.map((location) => {
+        return getRangeAngles(location, rangeMax);
+      }),
   };
 };
 
 function getStartEndAndTotalAngle(range, rangeMax) {
-  const rangeLength = getRangeLength(range, rangeMax);
+  const rangeLength = getRangeLength(
+    { start: range.start, end: range.end },
+    rangeMax
+  );
 
   return {
     startAngle: 2 * Math.PI * (range.start / rangeMax),
-    totalAngle: rangeLength / rangeMax * Math.PI * 2,
-    endAngle: 2 * Math.PI * (range.end + 1) / rangeMax //use a +1 here because the angle must encompass the end of the annotation
+    totalAngle: (rangeLength / rangeMax) * Math.PI * 2,
+    endAngle: (2 * Math.PI * (range.end + 1)) / rangeMax, //use a +1 here because the angle must encompass the end of the annotation
   };
 }
