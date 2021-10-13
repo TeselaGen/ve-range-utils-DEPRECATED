@@ -13,5 +13,5 @@ umd_demo.html
 yarn-error.log
 tslint.json
 nwb.config.js
-Changelog.md
+CHANGELOG.md
 .travis.yml
