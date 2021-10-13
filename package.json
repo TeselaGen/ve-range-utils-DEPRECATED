@@ -1,6 +1,6 @@
 {
   "name": "ve-range-utils",
-  "version": "2.6.4",
+  "version": "2.6.5",
   "description": "range utility functions",
   "main": "lib",
   "repository": "https://github.com/TeselaGen/ve-range-utils",
