@@ -4,6 +4,7 @@
   "description": "range utility functions",
   "main": "lib",
   "repository": "https://github.com/TeselaGen/ve-range-utils",
+  "homepage": "https://github.com/TeselaGen/ve-range-utils",
   "scripts": {
     "build": "nwb build-react-component --copy-files --no-demo",
     "prepublish": "in-publish && yarn build || not-in-publish",
