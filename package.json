@@ -7,7 +7,7 @@
   "homepage": "https://github.com/TeselaGen/ve-range-utils",
   "scripts": {
     "build": "nwb build-react-component --copy-files --no-demo",
-    "prepublishOnly": "yarn build",
+    "prepare": "yarn build",
     "test": "jest src",
     "lint": "eslint src",
     "precommit": "npm test",
