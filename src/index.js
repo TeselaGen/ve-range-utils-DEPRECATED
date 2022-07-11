@@ -23,6 +23,7 @@ module.exports.getOverlapsOfPotentiallyCircularRanges = require("./getOverlapsOf
 module.exports.getPositionFromAngle = require("./getPositionFromAngle")
 module.exports.getRangeAngles = require("./getRangeAngles")
 module.exports.getRangeLength = require("./getRangeLength")
+module.exports.getMiddleOfRange = require("./getMiddleOfRange")
 module.exports.getRangesBetweenTwoRanges = require("./getRangesBetweenTwoRanges")
 module.exports.getSequenceWithinRange = require("./getSequenceWithinRange")
 module.exports.getShortestDistanceBetweenTwoPositions = require("./getShortestDistanceBetweenTwoPositions")
