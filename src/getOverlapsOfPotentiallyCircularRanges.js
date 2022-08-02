@@ -37,7 +37,7 @@ module.exports = function getOverlapsOfPotentiallyCircularRanges(
     maxRangeLength
   ) {
     //we have 2 circular ranges that will have gotten split on the origin, so we'll manually mend those pieces back together
-    let joinedOverlap = {};
+    const joinedOverlap = {};
     overlaps = flatMap(overlaps, (o, i) => {
       if (o.start === 0) {
         joinedOverlap.end = o.end;
@@ -51,5 +51,3 @@ module.exports = function getOverlapsOfPotentiallyCircularRanges(
   }
   return overlaps;
 };
-
-
