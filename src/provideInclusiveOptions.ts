@@ -18,7 +18,7 @@ export const provideInclusiveOptions = <T extends Array<any>, U extends AnnRange
         // }
         // if () 
 
-        var returnVal = fn.apply(this, args)
+        var returnVal = fn.apply(global, args)
         if (returnVal && typeof returnVal === 'object' && returnVal.start > -1 && options && options.inclusive1BasedStart) {
             returnVal = assign(returnVal, { start: returnVal.start + 1 })
         }
