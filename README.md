@@ -1,12 +1,21 @@
+# THIS REPO HAS MOVED! 
+It now lives in our OSS monorepo - https://github.com/TeselaGen/tg-oss
+
+It can now be installed as 
+```
+npm install @teselagen/range-utils
+```	
+
 <!-- TOC -->
 
-- [[CHANGELOG](Changelog.md)](#changelogchangelogmd)
-- [About this Repo](#about-this-repo)
-- [Editing This Repo:](#editing-this-repo)
-  - [All collaborators:](#all-collaborators)
-- [Updating this repo:](#updating-this-repo)
-  - [Teselagen collaborators:](#teselagen-collaborators)
-  - [Outside collaborators:](#outside-collaborators)
+- [THIS REPO HAS MOVED!](#this-repo-has-moved)
+  - [[CHANGELOG](Changelog.md)](#changelogchangelogmd)
+  - [About this Repo](#about-this-repo)
+  - [Editing This Repo:](#editing-this-repo)
+    - [All collaborators:](#all-collaborators)
+  - [Updating this repo:](#updating-this-repo)
+    - [Teselagen collaborators:](#teselagen-collaborators)
+    - [Outside collaborators:](#outside-collaborators)
 
 <!-- /TOC -->
 
